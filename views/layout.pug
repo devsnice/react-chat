@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel="icon" type="image/png" href="/images/favicon.png")
+        link(rel="stylesheet" href="/css/vendors.css")
+        if(NODE_ENV == "production")
+            link(rel="stylesheet" href="/css/app.css")
+
+        meta(http-equiv="x-ua-compatible", content="ie=edge")
+        title #{title}
+        meta(name="description", content=description)
+        meta(name="keywords", content=keywords)
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+
+        script
+            !=state
+
+    body
+        div#content!=content
+
+        script(src="/js/app.js" async)
