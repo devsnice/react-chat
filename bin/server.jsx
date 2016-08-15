@@ -45,6 +45,8 @@ if (NODE_ENV === "development") {
     });
 }
 
+app.use('/files', express.static(path.join(__dirname , "../../api.shopmaek.ru/files")));
+
 app.use((req, res) => {
 
     let __store = store({});
@@ -63,6 +65,7 @@ app.use((req, res) => {
                     .forEach(
                         (route) => {
                             if (route.component.promises) {
+                                props.params.hostname = req.hostname;
                                 route.component.promises(props.params)
                                     .forEach(promise => {
                                         promises.push(promise(__store.dispatch));
@@ -87,6 +90,7 @@ app.use((req, res) => {
                     let state = __store.getState();
 
                     html['state'] = `window.__INITIAL_STATE__="${encode(JSON.stringify(state))}"`;
+                    html['favicon'] = state.shop.payload.settings.faviconPath;
 
                     res
                         .status(200)

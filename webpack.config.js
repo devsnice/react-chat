@@ -6,6 +6,8 @@ export const PORT = process.env.PORT || 2016;
 export const NODE_ENV = process.env.NODE_ENV || "development";
 export const PUBLIC_PATH = path.join(__dirname, ".tmp");
 
+process.env.API_URL = process.env.API_URL || "http://localhost:1987";
+
 let config = {
     context: path.join(__dirname, "/client"),
 
@@ -35,7 +37,7 @@ let config = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules|bower_components/,
-                loader: "babel?presets[]=es2015&presets[]=react"
+                loaders: ["babel?presets[]=es2015,presets[]=react,plugins[]=transform-class-properties"]
             },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -55,7 +57,10 @@ let config = {
         new ExtractTextPlugin("css/[name].css"),
         new webpack.DefinePlugin({
             "global.IS_BROWSER": true,
-            "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
+            "process.env": {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+                API_URL: JSON.stringify(process.env.API_URL)
+            }
         }),
         new webpack.NoErrorsPlugin()
 
@@ -66,7 +71,8 @@ if (NODE_ENV === "development") {
 
     config.plugins.push(new webpack.HotModuleReplacementPlugin());
 
-    config.module[2].loader = "react-hot!" + config.module[2].loader;
+    config.module.loaders[0].loader= "style!css!stylus";
+    config.module.loaders[2].loaders.unshift("react-hot");
 
     config.entry.app.unshift("webpack/hot/only-dev-server");
     config.entry.app.unshift("webpack-hot-middleware/client?http://0.0.0.0:" + PORT);
