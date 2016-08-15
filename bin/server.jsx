@@ -45,7 +45,6 @@ if (NODE_ENV === "development") {
     });
 }
 
-app.use('/files', express.static(path.join(__dirname , "../../api.shopmaek.ru/files")));
 
 app.use((req, res) => {
 
