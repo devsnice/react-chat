@@ -72,8 +72,6 @@ if (NODE_ENV === "development") {
     config.plugins.push(new webpack.HotModuleReplacementPlugin());
 
     config.module.loaders[0].loader= "style!css!stylus";
-    config.module.loaders[2].loaders.unshift("react-hot");
-
     config.entry.app.unshift("webpack/hot/only-dev-server");
     config.entry.app.unshift("webpack-hot-middleware/client?http://0.0.0.0:" + PORT);
 

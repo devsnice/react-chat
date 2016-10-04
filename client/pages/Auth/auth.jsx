@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Link} from "react-router"
 
 // import components
-// import LoginForm from './components/loginForm/loginForm.jsx'
+import LoginForm from './components/loginForm/loginForm.jsx'
 
 class Auth extends Component {
 
@@ -14,6 +14,7 @@ class Auth extends Component {
                     Auth on website
                 </h4>
 
+                <LoginForm />
             </div>
         )
     }
