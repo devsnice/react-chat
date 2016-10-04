@@ -1,6 +1,6 @@
 import App from "./app/app.jsx"
-import Homepage from "./app/homepage/homepage.jsx"
-import Catalog from "./app/catalog/catalog.jsx"
+import Homepage from "./pages/Homepage/homepage.jsx"
+import Auth from "./pages/Auth/auth.jsx"
 
 
 export default function (store) {
@@ -11,9 +11,11 @@ export default function (store) {
         indexRoute: {
             component: Homepage
         },
-        childRoutes: [{
-            path: "/catalog",
-            component: Catalog
-        }]
+        childRoutes: [
+            {
+                path: "/Auth",
+                component: Auth
+            }
+        ]
     }
 } ;

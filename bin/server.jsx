@@ -89,7 +89,7 @@ app.use((req, res) => {
                     let state = __store.getState();
 
                     html['state'] = `window.__INITIAL_STATE__="${encode(JSON.stringify(state))}"`;
-                    html['favicon'] = state.shop.payload.settings.faviconPath;
+
 
                     res
                         .status(200)

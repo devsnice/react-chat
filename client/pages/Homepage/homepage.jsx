@@ -12,9 +12,9 @@ class Homepage extends Component {
     render() {
         return (
             <div>
-                Homepage
-
-                <Link to="/catalog">Go catalog</Link>
+                <Link to="/auth">
+                    Auth
+                </Link>
             </div>
         )
     }

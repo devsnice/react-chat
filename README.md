@@ -1,18 +1,46 @@
-for use;
+*About project's arch*
 
-git clone https://github.com/kalyuk/webpack-react-template.git my_project
+For making navigation through project more clear, I've made next steps:
 
-go to dir project
+First and common:
+    Reducer and actions for each page holds in the page's root folder.
 
-cd my_project
+    for example auth page
+
+    pages/Auth
+         /model
+             /actions.js
+             /reducer.js
+         /components
+             / there's components for this page, smth like loginForm
+         auth.jsx
+         auth.styl
+
+Extra case:
+    Also we have some abstract models, like App and User which holds information for unity application, not only for separate page,
+    this kind of data holds in folder app
+
+    /app
+        /models
+                /App
+                    /actions.js
+                    /reducers.js
+                /User
+                    /actions.js
+                    /reducers.js
+
+
+
+
+*How to work with it*
 
 npm install
 
-for run development mode 
+Second: choose mode and going to work.
 
-npm start
-
+for run development mode
+    npm start
 
 for run production mode
+    npm run prod
 
-npm run prod
