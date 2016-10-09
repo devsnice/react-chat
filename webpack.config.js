@@ -16,7 +16,8 @@ let config = {
             "./client.jsx"
         ],
         vendors: [
-            path.join(__dirname, "node_modules/bootstrap/dist/css/bootstrap.min.css")
+            path.join(__dirname, "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+            path.join(__dirname, "node_modules/admin-lte/dist/css/AdminLTE.min.css")
         ]
     },
     target: "web",
@@ -46,6 +47,10 @@ let config = {
             {
                 test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "file?name=../.tmp/fonts/[name].[ext]"
+            },
+            {
+                test: /\.(jpg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "file?name=../.tmp/images/[name].[ext]"
             },
             {
                 test: /\.(svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,

@@ -10,6 +10,7 @@
   "author": "Dmitry Kalyuk",
   "license": "MIT",
   "dependencies": {
+    "admin-lte": "^2.3.6",
     "babel-cli": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-class-properties": "^6.11.5",

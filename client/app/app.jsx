@@ -30,15 +30,9 @@ class App extends Component {
         return (
             <div className="container">
 
-                <header>
-                    <h1>
-                        App test
-                    </h1>
-                </header>
-
                 {this.state.appAlready
                     ? this.props.children
-                    : null
+                    : 'Loading...'
                 }
             </div>
         )

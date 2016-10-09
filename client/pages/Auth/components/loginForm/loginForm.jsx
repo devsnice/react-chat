@@ -8,19 +8,19 @@ class LoginForm extends Component {
     constructor(props) {
         super(props);
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.actionSubmit = this.actionSubmit.bind(this);
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-
-        console.log(e);
+    actionSubmit(form) {
+        console.log(form);
     }
 
     render() {
 
+        const { handleSubmit, pristine, reset, submitting } = this.props;
+
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={handleSubmit(this.actionSubmit)}>
                 <div>
                     <label htmlFor="firstName">First Name</label>
                     <Field name="firstName" component="input" type="text"/>
